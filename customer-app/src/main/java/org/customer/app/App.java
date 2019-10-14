@@ -22,11 +22,13 @@ public class App
 			 * customer=impl.createCustomer(id, name, email);
 			 * System.out.println(customer.toString());
 			 */
-        	List<Customer> list=impl.getAllCustomer();
-        	for(Customer c:list)
-        	{
-        		System.out.println(c);
-        	}
+			/*
+			 * List<Customer> list=impl.getAllCustomer(); for(Customer c:list) {
+			 * System.out.println(c); }
+			 */
+        	System.out.print("enter id to search: ");
+        	int id=scanner.nextInt();
+        	impl.findById(id);
 			
 		} catch (Exception e) {
 			// TODO: handle exception

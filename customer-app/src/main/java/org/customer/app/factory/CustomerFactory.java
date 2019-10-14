@@ -8,6 +8,7 @@ public interface CustomerFactory {
 	
 	public Customer createCustomer(int id,String name,String email);
 	public List<Customer> getAllCustomer();
+	public void findById(int id);
 	
 
 }

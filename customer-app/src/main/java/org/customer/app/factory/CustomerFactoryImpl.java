@@ -71,4 +71,37 @@ public class CustomerFactoryImpl implements CustomerFactory {
 		return list;
 	}
 
+	public void findById(int id) {
+		// TODO Auto-generated method stub
+		try {
+			int count=-1;
+			pStatement=connection.prepareStatement("select * from customer where id=?");
+			pStatement.setInt(1, id);
+			ResultSet rs=pStatement.executeQuery();
+			System.out.println(rs);
+			while(rs.next())
+			{
+				count++;
+			}
+			if(count<0)
+			{
+				System.out.println("no such record found...");
+			}
+			else
+			{
+				while(rs.next())
+				{
+					System.out.println(rs.getInt(1)+","+rs.getString(2)+","+rs.getString(3));
+				}
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+
 }
