@@ -1,16 +1,16 @@
 package comm.example.model;
 
-import java.util.*;
+import java.util.Date;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = false)
-@DiscriminatorValue("International CD")
+
 public class InternationalCD extends CD {
 	private String languages;
 	private int region;

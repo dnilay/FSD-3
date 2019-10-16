@@ -1,16 +1,16 @@
 package comm.example.model;
 
-import java.util.*;
+import java.util.Date;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = false)
-@DiscriminatorValue("Special Edition CD")
+
 public class SpecialEditionCD extends CD {
 	private String newfeatures;
 
