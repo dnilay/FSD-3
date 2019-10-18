@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 public class AddLeagueServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   private List<String> l=null;
+  
+  private String seasons=null;
+  private String[] seasonArr;
+  
+	@Override
+public void init(ServletConfig config) throws ServletException {
+	// TODO Auto-generated method stub
+	super.init(config);
+	seasons=config.getInitParameter("season-list");
+	seasonArr=seasons.split(",");
+	
+}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 		
@@ -54,14 +67,19 @@ public class AddLeagueServlet extends HttpServlet {
 			"\n" + 
 			"    \n" + 
 			"    <input type=\"text\" id=\"defaultLoginFormPassword\" class=\"form-control mb-4\" placeholder=\"title\" name=\"title\">\n" + 
-			"\n" + 
-			" <select class=\"browser-default custom-select\" name=\"season\">\n" + 
-			"  <option value=\"Unknown\">Select A Season</option>\n" + 
-			"  <option value=\"Winter\">Winter</option>\n" + 
-			"  <option value=\"Summer\">Summer</option>\n" + 
-			"  <option value=\"Autumn\">Autumn</option>\n" + 
-			"</select>\n" + 
-			"\n" + 
+			"\n"); 
+			 
+		out.println("<select name='season'>");
+		for(String str:seasonArr) {
+		
+			out.println("<option value='"+str+"'>"+str+"</option>");
+		}
+		out.println("</select>");
+	
+	
+	
+	
+	out.println("\n" + 
 			"    <!-- Sign in button -->\n" + 
 			"    <button class=\"btn btn-info btn-block my-4\" type=\"submit\">Add A New League</button>\n" + 
 			"\n" + 
