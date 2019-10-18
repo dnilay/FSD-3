@@ -10,12 +10,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import comm.example.dao.LeagueDao;
+import comm.example.dao.LeagueDaoImpl;
+import comm.example.model.League;
+
 public class AddLeagueServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private List<String> l = null;
-
+private LeagueDao dao=null;
 	private String seasons = null;
 	private String[] seasonArr;
+	private List<League> list = null;
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
@@ -71,7 +76,19 @@ public class AddLeagueServlet extends HttpServlet {
 
 		out.println("\n" + "    <!-- Sign in button -->\n"
 				+ "    <button class=\"btn btn-info btn-block my-4\" type=\"submit\">Add A New League</button>\n" + "\n"
-				+ "\n" + "</form>\n" + "\n" + "</body>\n" + "</html>");
+				+ "\n" + "</form>\n");
+
+		dao = new LeagueDaoImpl();
+		list = dao.getAllLeague();
+	out.println("<div class='container'><table border class='table'><tr><td>Season</td><td>Title</td><td>Year</td></tr>");
+		
+		for(League l:list)
+		{
+			out.println("<tr><td>"+l.getSeason()+"</td><td>"+l.getTitle()+"</td><td>"+l.getYear()+"</td></tr>");
+		}
+		out.println("</div></table><a href='index.html'>Go To Home Page</a></body></html>");
+		
+		out.println("\n" + "</body>\n" + "</html>");
 
 	}
 

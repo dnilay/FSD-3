@@ -3,6 +3,7 @@
                                          "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
  <session-factory>
+ 
   <property name="hibernate.connection.password">Passw0rd@1234</property>
   <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hr</property>
   <property name="hibernate.connection.username">root</property>

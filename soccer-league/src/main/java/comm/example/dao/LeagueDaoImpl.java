@@ -1,5 +1,7 @@
 package comm.example.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -10,7 +12,7 @@ public class LeagueDaoImpl implements LeagueDao {
 
 	private Session session = null;
 	private SessionFactory factory = null;
-
+	
 	{
 		factory = HibernateUtilFactory.getSessionFactory();
 	}
@@ -25,6 +27,21 @@ public class LeagueDaoImpl implements LeagueDao {
 		} finally {
 			session.close();
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<League> getAllLeague() {
+		// TODO Auto-generated method stub
+	List<League> list=null;
+		try {
+			session=factory.openSession();
+			session.getTransaction().begin();
+			list=session.createQuery("from League").getResultList();
+		} finally {
+			session.close();
+		}
+		
+		return list;
 	}
 
 }
