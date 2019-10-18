@@ -32,14 +32,13 @@ public class ErrorServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		@SuppressWarnings("unused")
-		List<String> list=(List<String>)request.getAttribute("ERROR");
+		List<String> list = (List<String>) request.getAttribute("ERROR");
 		out.println("please correct the bellow error(s)<br/>");
-		for(String str:list)
-		{
-			out.println("<font color='red'>"+str+"</font><br/>");
+		for (String str : list) {
+			out.println("<font color='red'>" + str + "</font><br/>");
 		}
 		out.println("<a href='add_league.html'>try again</a>");
-	
+
 	}
 
 }
