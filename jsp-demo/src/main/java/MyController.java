@@ -1,4 +1,4 @@
-package comm.example.controller;
+
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import comm.example.model.Student;
-
 public class MyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private String fName, lName, subject;
-	private int age;
-private List<String> errors=null;
+	private String fName, lName;
+
+	private List<String> errors = null;
+	private String email;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doProcess(request, response);
@@ -31,42 +31,32 @@ private List<String> errors=null;
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		PrintWriter out=response.getWriter();
+		PrintWriter out = response.getWriter();
 		out.println("Hey I am in controller.do");
-		errors=new LinkedList<String>();
-		fName=request.getParameter("fName");
-		if((fName==null) || (fName.length()<5))
-		{
-			errors.add("first name can't be null or less than 5 chars");
+		errors = new LinkedList<String>();
+		fName = request.getParameter("fName");
+		if ((fName == null) || (fName.length() < 5)) {
+			errors.add("<font color='red'>first name can't be null or less than 5 chars</font>");
 		}
-		lName=request.getParameter("lName");
-		if((fName==null) || (fName.length()<5))
-		{
-			errors.add("last name can't be null or less than 5 chars");
-		}
-		try {
-			age=Integer.parseInt(request.getParameter("age").toString());
-		} catch (Exception e) {
-			errors.add("age field must be numeric");
-		}
-		subject=request.getParameter("subject").toString();
-		if(subject.equals("Unknown"))
-		{
-			errors.add("subject can't be unknown");
+		lName = request.getParameter("lName");
+		if ((lName == null) || (lName.length() < 5)) {
+			errors.add("<font color='red'>last name can't be null or less than 5 chars</font>");
 		}
 		
-		if(!errors.isEmpty())
-		{
-			request.setAttribute("errors", errors);
-			RequestDispatcher view=request.getRequestDispatcher("index.jsp");
-			view.forward(request, response);
+		email = request.getParameter("email").toString();
+		if (email.length()<8) {
+			errors.add("<font color='red'>email field can't be blank</font>");
 		}
-		else
-		{
-			request.setAttribute("success", new Student(fName, lName, subject, age));
-			RequestDispatcher view=request.getRequestDispatcher("success.jsp");
+
+		if (!errors.isEmpty()) {
+			request.setAttribute("errors", errors);
+			RequestDispatcher view = request.getRequestDispatcher("index.jsp");
+			view.forward(request, response);
+		} else {
+			request.setAttribute("success", new Customer(fName, lName,email));
+			RequestDispatcher view = request.getRequestDispatcher("success.jsp");
 			view.include(request, response);
-			
+
 		}
 	}
 

@@ -1,34 +1,44 @@
+<!DOCTYPE h2 PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="java.util.List"%>
 <html>
-<title>main page</title>
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<title>add customer</title>
+</head>
 <body>
 
+
 	<%
-		
-		
-	List<String> list=(List<String>)request.getAttribute("errors");
-	if(list!=null)
-	{
-		for(String str:list)
-		{
-			out.println("<font color='red'>"+str+"<br/>");
+		List<String> list = (List<String>) request.getAttribute("errors");
+		if (list != null) {
+			for (String str : list) {
+				out.println(str + "<br/>");
+			}
+
 		}
-		out.println("</font>");
-	}
-	
-	
 	%>
-	<h2>index page</h2>
-	<form action="controller.do" method="post">
-		First Name<input type="text" name="fName"><br /> Last Name<input
-			type="text" name="lName"><br /> Age<input type="text"
-			name="age"><br /> Subject<select name="subject">
-			<option value="Unknown">Select...</option>
-			<option value="Physics">Physics</option>
-			<option value="Bio Physics">Bio Physics</option>
-			<option value="Bio Chemistry">Bio Chemistry</option>
-			<option value="Applied Physics">Applied Physics</option>
-		</select><br /> <input type="submit"><input type="reset">
+
+	<form class="text-center border border-light p-5"
+		action="controller.do">
+
+		<p class="h4 mb-4">Customer Form</p>
+
+
+		<input type="text" id="defaultContactFormName"
+			class="form-control mb-4" placeholder="first Name" name="fName">
+
+		<input type="text" id="defaultContactFormName"
+			class="form-control mb-4" placeholder="last Name" name="lName">
+		<input type="text" id="defaultContactFormName"
+			class="form-control mb-4" placeholder="email" name="email">
+
+
+		<button class="btn btn-info btn-block" type="submit">Add
+			Customer</button>
+
 	</form>
 </body>
 </html>
