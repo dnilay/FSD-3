@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -22,7 +23,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Customer> getAllCustomer() {
-	
+
 		session = factory.openSession();
 		session.getTransaction().begin();
 		Query query = session.createQuery("from Customer", Customer.class);
@@ -33,12 +34,12 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Override
 	public void createCustomer(Customer customer) {
-		
+
 		session = factory.openSession();
 		session.getTransaction().begin();
 		session.persist(customer);
 		session.getTransaction().commit();
-		
+
 	}
 
 	@Override
@@ -47,7 +48,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 		session.getTransaction().begin();
 		session.remove(customer);
 		session.getTransaction().commit();
-		
+
 	}
 
 	@Override
@@ -55,8 +56,34 @@ public class CustomerDAOImpl implements CustomerDAO {
 		// TODO Auto-generated method stub
 		session = factory.openSession();
 		session.getTransaction().begin();
-		Customer c=session.get(Customer.class, id);
+		Customer c = session.get(Customer.class, id);
 		return c;
+	}
+
+	@Override
+	public void updateCustomer(int id, Customer c) {
+		// TODO Auto-generated method stub
+		session = factory.openSession();
+		session.getTransaction().begin();
+		Customer customer = session.get(Customer.class, id);
+		customer.setFirstName(c.getFirstName());
+		customer.setLastName(c.getLastName());
+		customer.setEmail(c.getEmail());
+		session.merge(customer);
+		session.getTransaction().commit();
+
+	}
+
+	@Override
+	public List<Customer> findCustomer(String str) {
+		// TODO Auto-generated method stub
+		session = factory.openSession();
+		session.getTransaction().begin();
+		Query query = session.createQuery("FROM Customer WHERE firstName like concat('%',:customerName,'%')");
+        query.setParameter("customerName", str);
+session.getTransaction().commit();
+
+		return query.getResultList();
 	}
 
 }

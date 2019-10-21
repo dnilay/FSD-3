@@ -28,10 +28,18 @@
 			<input type="button" value="Add Customer"
 				onclick="window.location.href='customer-form.jsp'; return false;"
 				class="add-button" />
+
+		</div>
+		<div>
+			<form action="search.do">
+
+				<input name="search" type="text" /><input type="submit"
+					value="search">
+			</form>
 		</div>
 
 		<table class="table table-striped">
-			<thead >
+			<thead>
 				<tr>
 					<th>#</th>
 					<th>Firstname</th>
@@ -41,12 +49,12 @@
 				</tr>
 			</thead>
 			<tbody>
-			
+
 				<c:forEach var="tempCustomer" items="${customers}">
-						<c:url var="updateLink" value="update.do">
+					<c:url var="updateLink" value="update.do">
 						<c:param name="customerId" value="${tempCustomer.id}" />
 					</c:url>
-			
+
 					<c:url var="deleteLink" value="delete.do">
 						<c:param name="customerId" value="${tempCustomer.id}" />
 					</c:url>
@@ -55,11 +63,10 @@
 						<td>${tempCustomer.firstName}</td>
 						<td>${tempCustomer.lastName}</td>
 						<td>${tempCustomer.email}</td>
-						<td>
-						<a href="${updateLink}">Update</a>
-						<a href="${deleteLink}"
+						<td><a href="${updateLink}">Update</a> <a
+							href="${deleteLink}"
 							onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
-							
+
 						</td>
 					</tr>
 				</c:forEach>
