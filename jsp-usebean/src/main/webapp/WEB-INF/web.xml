@@ -3,6 +3,7 @@
     version="3.0">
 
     <display-name>To do List</display-name>
+	
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

@@ -13,6 +13,6 @@ President Name:<%=p.getPresidentName() %>
 President Age:<%=p.getPresidentAge() %>
 President Joining Year:<%=p.getJoiningYear() %>
 President Release Year:<%=p.getReleaseYear() %>
-<jsp:include page="controller.do"/>
+
 </body>
 </html>
