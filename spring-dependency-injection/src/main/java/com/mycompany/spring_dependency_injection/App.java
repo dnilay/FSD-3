@@ -14,7 +14,7 @@ public class App {
 		try {
 
 			context = new ClassPathXmlApplicationContext("applicationContext.xml");
-			Coach myCoach = context.getBean("theCoach", Coach.class);
+			Coach myCoach = context.getBean("baseBallCoach", Coach.class);
 			System.out.println("Coach Details: "+myCoach.toString());
 			System.out.println("Workout plan of the day: " + myCoach.getDailyWorkout());
 			System.out.println("Fortune of the day: " + myCoach.getDailyFortune());
