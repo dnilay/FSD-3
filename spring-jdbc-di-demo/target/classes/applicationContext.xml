@@ -20,8 +20,9 @@
 	<property name="dataSource" ref="dbSource"/>
 	
 	</bean>
-<bean name="customerDao" class="comm.example.dao.CustomerDAOImpl">
-		<constructor-arg name="jdbcTemplate" ref="jdbcTemplate" />
-	</bean>
+	
+<context:component-scan base-package="comm.example"/>
+
+
 <context:property-placeholder location="classpath:jdbc.properties"/>
 </beans>
