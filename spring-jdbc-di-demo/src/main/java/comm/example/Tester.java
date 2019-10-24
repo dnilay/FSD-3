@@ -1,5 +1,7 @@
 package comm.example;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import comm.example.dao.CustomerDAO;
@@ -9,6 +11,7 @@ import comm.example.model.Customer;
 public class Tester {
 
 	public static void main(String[] args) {
+		
 
 		try {
 
@@ -17,9 +20,10 @@ public class Tester {
 
 			customerDAO.createCustomer(new Customer("Sourav", "Ganguly", "sourav@luv2code.com"));
 			System.out.println("ok!");
-
+		
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 		}
 
 	}
