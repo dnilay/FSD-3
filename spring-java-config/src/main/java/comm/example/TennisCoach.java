@@ -1,13 +1,18 @@
 package comm.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import lombok.AllArgsConstructor;
+
 @Component
+@AllArgsConstructor
 public class TennisCoach implements Coach {
 
 	@Autowired
-	private RandomFortuneService fortuneService;
+	@Qualifier("randomFortuneService")
+	private FortuneService fortuneService;
 	
 	// define a default constructor
 	public TennisCoach() {
