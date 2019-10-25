@@ -10,10 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name = "customer")
+@NoArgsConstructor
 public class Customer implements Serializable {
 
 	private static final long serialVersionUID = 1L;
