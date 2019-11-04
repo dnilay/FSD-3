@@ -8,13 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import comm.example.spring.mvc.model.Student;
 
 @Controller
+@RequestMapping("/student")
 public class StudentController {
 
-	@RequestMapping("/")
-	public String home()
-	{
-		return "main-menu";
-	}
+
 	@RequestMapping("/showForm")
 	public String showForm(Model theModel)
 	{

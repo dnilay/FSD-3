@@ -9,7 +9,7 @@
 
 <body>
 
-<a href="showForm">student form</a>
-
+<a href="${pageContext.request.contextPath}/student/showForm">student form</a><br/>
+<a href="${ pageContext.request.contextPath}/customer/showForm">customer form</a>
 </body>
 </html>
