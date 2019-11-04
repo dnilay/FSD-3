@@ -22,6 +22,8 @@ Free Passes:<form:input path="freePass"/>
 <form:errors path="freePass" cssClass="error"/><br/>
 Postal Code:<form:input path="postalCode"/>
 <form:errors path="postalCode" cssClass="error"/><br/>
+Email:<form:input path="email"/>
+<form:errors path="email" cssClass="error"/><br/>
 <input type="submit">
 </form:form>
 </body>

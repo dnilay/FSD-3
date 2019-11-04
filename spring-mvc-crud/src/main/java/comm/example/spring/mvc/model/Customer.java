@@ -1,5 +1,6 @@
 package comm.example.spring.mvc.model;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -27,7 +28,10 @@ public class Customer {
 	@Min(value = 0,message = "minimum value can't be negetive")
 	@Max(value = 10,message = "maximum value can't be greater than 10")
 	private int freePass;
-	@Pattern(regexp = "^[a-zA-Z0-9] {5}",message = "invalid postal code")
+	@Pattern(regexp = "^\\d{3}\\s?\\d{3}$",message = "invalid postal code")
 	private String postalCode;
+	@NotNull
+	@Email(message = "invalid email")
+	private String email;
 
 }
