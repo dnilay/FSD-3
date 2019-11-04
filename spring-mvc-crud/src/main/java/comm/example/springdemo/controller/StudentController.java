@@ -1,11 +1,11 @@
-package comm.example.spring.mvc.controller;
+package comm.example.springdemo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import comm.example.spring.mvc.model.Student;
+import comm.example.springdemo.model.Student;
 
 @Controller
 @RequestMapping("/student")

@@ -1,4 +1,4 @@
-package comm.example.spring.mvc.model;
+package comm.example.springdemo.model;
 
 import java.util.LinkedHashMap;
 

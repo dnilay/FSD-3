@@ -10,6 +10,7 @@
 <body>
 
 <a href="${pageContext.request.contextPath}/student/showForm">student form</a><br/>
-<a href="${ pageContext.request.contextPath}/customer/showForm">customer form</a>
+<a href="${ pageContext.request.contextPath}/customer/showForm">customer form</a><br/>
+<a href="${ pageContext.request.contextPath}/customer/list">list customer</a>
 </body>
 </html>
