@@ -1,7 +1,5 @@
 package com.mycompany.spring_rest_application.entity;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +11,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
 @Entity
 @Table(name = "todo")
 @Data
@@ -27,10 +26,5 @@ public class Todo {
 	private String user;
 	private String desc;
 	private boolean isDone;
-
-	
-	
-
-	
 
 }
