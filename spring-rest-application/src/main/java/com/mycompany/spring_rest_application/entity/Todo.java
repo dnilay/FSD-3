@@ -26,7 +26,6 @@ public class Todo {
 	private int id;
 	private String user;
 	private String desc;
-	private Date targetDate;
 	private boolean isDone;
 
 	
