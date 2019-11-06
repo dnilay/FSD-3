@@ -52,8 +52,24 @@ public class CustomerDAOImpl implements CustomerDAO {
 	public Customer save(Customer customer) {
 		// TODO Auto-generated method stub
 		Session currentSession = sessionFactory.openSession();
-		currentSession.save(customer);
+		currentSession.getTransaction().begin();
+		currentSession.saveOrUpdate(customer);
+		currentSession.getTransaction().commit();
 		return customer;
+	}
+
+
+
+	@Override
+	public void deleteCustomer(int theId) {
+		Session currentSession=sessionFactory.getCurrentSession();
+		Customer customer=currentSession.get(Customer.class, theId);
+		if(customer==null)
+		{
+			throw new CustomerNotFoundException("customer not found with the given id: "+theId);
+		}
+		currentSession.remove(customer);
+		
 	}
 
 	

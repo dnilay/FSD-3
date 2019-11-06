@@ -11,6 +11,6 @@
         <h1>Hello World!</h1>
         <p>This is the homepage!</p>
         <a href="${pageContext.request.contextPath}/api/todos">list all todos</a>
-         <a href="${pageContext.request.contextPath}/api/customers">list all todos</a>
+         <a href="${pageContext.request.contextPath}/api/customers">list all customers</a>
     </body>
 </html>
