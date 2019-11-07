@@ -53,11 +53,20 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	@Override
 	public void deleteById(int theId) {
 
-		Query theQuery = entityManager.createQuery("delete from Employee where id=:employeeId");
+		Query theQuery = entityManager.createQuery("delete from Employee e where e.employeeId=:employeeId");
 
 		theQuery.setParameter("employeeId", theId);
 
 		theQuery.executeUpdate();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Employee> findByEmail(String email) {
+		Query theQuery = entityManager.createQuery("from Employee e where e.email=:employeeEmail",Employee.class);
+
+		theQuery.setParameter("employeeEmail", email);
+		return theQuery.getResultList();
 	}
 
 }
