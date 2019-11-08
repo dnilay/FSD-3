@@ -32,4 +32,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return employeeRepository.findById(theID);
 	}
 
+	@Override
+	public List<Employee> findByFirstName(String firstName) {
+		// TODO Auto-generated method stub
+		return employeeRepository.findByFirstName(firstName);
+	}
+
 }

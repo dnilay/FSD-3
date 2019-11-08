@@ -10,6 +10,6 @@ public interface EmployeeService {
 	public List<Employee> getALlEmployee();
 	public Optional<Employee> getEmployeeByID(int theID);
 	
-
+	public List<Employee> findByFirstName(String firstName);
 
 }
