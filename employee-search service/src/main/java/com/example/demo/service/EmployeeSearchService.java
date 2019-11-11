@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.model.Employee;
+import com.example.demo.model.Employee;
 
 @Service
 
@@ -22,7 +22,7 @@ public class EmployeeSearchService {
 
 	}
 
-	@SuppressWarnings("unused")
+
 	private static Employee createEmployee(Long id, String name, String practiceArea, String designation) {
 
 		Employee emp = new Employee();
@@ -42,7 +42,9 @@ public class EmployeeSearchService {
 	}
 
 	public Collection<Employee> findAll() {
-
+		employeeRepsitory = new ArrayList<Employee>();
+		employeeRepsitory.add(createEmployee(1L, "John", "Embedded C++", "Architect"));
+		employeeRepsitory.add(createEmployee(2L, "Rahul", "Cloud", "Senior Developer"));
 		return employeeRepsitory;
 
 	}
