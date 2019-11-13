@@ -51,6 +51,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeRepository.deleteById(theId);
 	}
 
+	@Override
+	public List<Employee> searchBy(String theFirstName, String theLastName) {
+		
+		return employeeRepository.
+				findByFirstNameContainsAndLastNameContainsAllIgnoreCase(
+						theFirstName, theLastName);	
+	}
+
 }
 
 
