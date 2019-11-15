@@ -1,24 +1,10 @@
-package com.example.demo.model;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+package com.example.model;
 
 import lombok.Data;
 
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@id", scope = Employee.class)
-@Entity
-@Data
 public class Employee {
 
-
-	@Column(name = "employee_name")
 	private String empName;
-	@Id
-	@Column(name = "id")
 	private String empId;
 
 	public String getEmpName() {
