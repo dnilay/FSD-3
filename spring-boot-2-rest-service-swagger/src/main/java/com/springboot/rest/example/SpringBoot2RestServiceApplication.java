@@ -10,3 +10,4 @@ public class SpringBoot2RestServiceApplication {
 		SpringApplication.run(SpringBoot2RestServiceApplication.class, args);
 	}
 }
+  
