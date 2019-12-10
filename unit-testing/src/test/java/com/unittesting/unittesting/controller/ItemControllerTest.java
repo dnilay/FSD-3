@@ -60,6 +60,7 @@ public class ItemControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(content().json("{id:2,name:Item2,price:10}"))
 				.andReturn();
+		
 		//JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
 		
 	}
